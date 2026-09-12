@@ -1,0 +1,176 @@
+<?php
+$pageTitle = "Sign In - Durrun Partner Portal";
+
+// Simple handler: if form is submitted via POST, redirect to dashboard.php
+if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+    header('Location: dashboard.php');
+    exit;
+}
+
+require_once __DIR__ . '/includes/header.php';
+?>
+
+<div class="login-container">
+    <!-- Left Section -->
+    <div class="login-left">
+        <!-- Background Organic Wave SVG -->
+        <svg class="login-left-wave" viewBox="0 0 700 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 130C150 180 320 250 500 170C590 130 650 140 700 160V240H0V130Z" fill="#ddecff" fill-opacity="0.45"/>
+            <path d="M0 170C120 130 280 230 460 200C580 180 660 210 700 220V240H0V170Z" fill="#cfe3ff" fill-opacity="0.35"/>
+        </svg>
+
+        <div class="login-left-content">
+            <!-- Brand Logo -->
+            <div class="brand-logo-wrapper">
+                <img src="assets/img/logo_card.png" alt="Durrun Logo" height="38">
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="portal-title">Partner Portal</h1>
+            <p class="portal-desc">
+                Manage your account, access ads, API, and partner resources — all in one place.
+            </p>
+
+            <!-- Feature Highlight List -->
+            <div class="feature-list">
+                <!-- Item 1 -->
+                <div class="feature-item">
+                    <div class="feature-icon-box">
+                        <i class="bi bi-people"></i>
+                    </div>
+                    <div>
+                        <div class="feature-title">For Partners</div>
+                        <p class="feature-desc">Manage your profile, projects and integrations.</p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="feature-item">
+                    <div class="feature-icon-box">
+                        <i class="bi bi-megaphone"></i>
+                    </div>
+                    <div>
+                        <div class="feature-title">Access Ads</div>
+                        <p class="feature-desc">Get ad creatives, tracking links and performance data.</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="feature-item">
+                    <div class="feature-icon-box">
+                        <i class="bi bi-code-slash"></i>
+                    </div>
+                    <div>
+                        <div class="feature-title">API Access</div>
+                        <p class="feature-desc">Generate API keys and monitor your usage.</p>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="feature-item">
+                    <div class="feature-icon-box">
+                        <i class="bi bi-grid"></i>
+                    </div>
+                    <div>
+                        <div class="feature-title">All in One Portal</div>
+                        <p class="feature-desc">Everything you need to grow together.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Left Footer Tagline -->
+        <div class="partner-tagline">
+            Our Partners. A Stronger Tomorrow.
+        </div>
+    </div>
+
+    <!-- Right Section -->
+    <div class="login-right">
+        <div class="login-card-wrapper">
+            <div class="login-card">
+                <!-- Center Logo -->
+                <img src="assets/img/logo_card.png" alt="Durrun Logo" class="card-logo">
+
+                <h2 class="login-card-title">Sign In</h2>
+                <p class="login-card-subtitle">Access your partner portal</p>
+
+                <!-- Login Form -->
+                <form action="dashboard.php" method="GET">
+                    <!-- Email Address -->
+                    <div class="form-group-custom">
+                        <label for="emailInput" class="form-label-custom">Email Address</label>
+                        <div class="input-icon-group">
+                            <i class="bi bi-envelope input-icon-left"></i>
+                            <input type="email" class="form-control" id="emailInput" name="email" placeholder="Enter your email" required value="partner@acme.ai">
+                        </div>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-group-custom">
+                        <label for="passwordInput" class="form-label-custom">Password</label>
+                        <div class="input-icon-group">
+                            <i class="bi bi-lock input-icon-left"></i>
+                            <input type="password" class="form-control" id="passwordInput" name="password" placeholder="Enter your password" required value="••••••••••••">
+                            <i class="bi bi-eye-slash input-toggle-password" id="togglePasswordBtn" title="Toggle password visibility"></i>
+                        </div>
+                    </div>
+
+                    <!-- Forgot Password -->
+                    <div class="d-flex justify-content-end mb-3">
+                        <a href="#" class="forgot-password-link">Forgot password?</a>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-sign-in">
+                        Sign In
+                    </button>
+
+                    <!-- OR Divider -->
+                    <div class="divider-or">
+                        <span>OR</span>
+                    </div>
+
+                    <!-- Google Sign In Button -->
+                    <a href="dashboard.php" class="btn btn-google text-decoration-none">
+                        <svg width="18" height="18" viewBox="0 0 24 24">
+                            <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
+                            <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+                            <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+                            <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                        </svg>
+                        <span>Continue with Google</span>
+                    </a>
+
+                    <!-- Bottom Signup Link -->
+                    <div class="card-bottom-link">
+                        Don't have an account? <a href="#">Contact Us</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Right Bottom Footer Links -->
+        <div class="login-footer-row">
+            <span>&copy; 2025 Durrun. All rights reserved.</span>
+            <span>Build. Share. Grow Together.</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Password visibility toggle
+    const toggleBtn = document.getElementById('togglePasswordBtn');
+    const passwordInput = document.getElementById('passwordInput');
+
+    if (toggleBtn && passwordInput) {
+        toggleBtn.addEventListener('click', function() {
+            const isPassword = passwordInput.getAttribute('type') === 'password';
+            passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+            this.classList.toggle('bi-eye');
+            this.classList.toggle('bi-eye-slash');
+        });
+    }
+</script>
+
+<?php require_once __DIR__ . '/includes/footer.php'; ?>
