@@ -17,18 +17,6 @@ $showEmpty = isset($_GET['empty']) && $_GET['empty'] == '1';
             <a href="<?php echo $pathToRoot; ?>view/dashboard.php" class="d-flex align-items-center text-decoration-none">
                 <img src="<?php echo $pathToRoot; ?>assets/img/logo_card.png" alt="Durrun Logo" class="nav-brand-logo">
             </a>
-
-            <!-- Platform Top Nav Links -->
-            <nav class="d-none d-xl-flex align-items-center gap-3 ms-3">
-                <a href="<?php echo $pathToRoot; ?>view/dashboard.php" class="nav-top-link"><i class="bi bi-house-door"></i> Home</a>
-                <a href="#" class="nav-top-link"><i class="bi bi-journal-text"></i> Templates</a>
-                <a href="<?php echo $pathToRoot; ?>view/provider-profile.php" class="nav-top-link"><i class="bi bi-box-seam"></i> Providers</a>
-                <a href="#" class="nav-top-link"><i class="bi bi-code-slash"></i> Playground</a>
-                <a href="#" class="nav-top-link"><i class="bi bi-folder"></i> Projects</a>
-                <a href="#" class="nav-top-link"><i class="bi bi-people"></i> Community</a>
-                <a href="#" class="nav-top-link"><i class="bi bi-window-sidebar"></i> Workspaces</a>
-                <a href="#" class="nav-top-link"><i class="bi bi-tag"></i> Pricing</a>
-            </nav>
         </div>
 
         <div class="nav-right-actions">
@@ -93,7 +81,9 @@ $showEmpty = isset($_GET['empty']) && $_GET['empty'] == '1';
             <div class="row g-3 mb-4">
                 <div class="col-12 col-sm-6 col-xl-3">
                     <div class="stat-card">
-                        <div class="stat-icon-wrapper stat-icon-blue"><i class="bi bi-box"></i></div>
+                        <div class="stat-icon-wrapper stat-icon-blue">
+                            <img src="<?php echo $pathToRoot; ?>assets/icons/Models/Total Models.svg" alt="Total Models" class="stat-icon-svg">
+                        </div>
                         <div class="stat-body">
                             <div class="stat-value"><?php echo $showEmpty ? '0' : '5'; ?></div>
                             <div class="stat-label">Total Models</div>
@@ -103,7 +93,9 @@ $showEmpty = isset($_GET['empty']) && $_GET['empty'] == '1';
 
                 <div class="col-12 col-sm-6 col-xl-3">
                     <div class="stat-card">
-                        <div class="stat-icon-wrapper stat-icon-green"><i class="bi bi-play-fill" style="font-size: 1.6rem;"></i></div>
+                        <div class="stat-icon-wrapper stat-icon-green">
+                            <img src="<?php echo $pathToRoot; ?>assets/icons/Models/Live.svg" alt="Live" class="stat-icon-svg">
+                        </div>
                         <div class="stat-body">
                             <div class="stat-value"><?php echo $showEmpty ? '0' : '3'; ?></div>
                             <div class="stat-label">Live</div>
@@ -113,7 +105,9 @@ $showEmpty = isset($_GET['empty']) && $_GET['empty'] == '1';
 
                 <div class="col-12 col-sm-6 col-xl-3">
                     <div class="stat-card">
-                        <div class="stat-icon-wrapper stat-icon-amber"><i class="bi bi-clock"></i></div>
+                        <div class="stat-icon-wrapper stat-icon-amber">
+                            <img src="<?php echo $pathToRoot; ?>assets/icons/Models/Under Review.svg" alt="Under Review" class="stat-icon-svg">
+                        </div>
                         <div class="stat-body">
                             <div class="stat-value"><?php echo $showEmpty ? '0' : '1'; ?></div>
                             <div class="stat-label"><?php echo $showEmpty ? 'Under Review' : 'Pending Review'; ?></div>
@@ -124,7 +118,7 @@ $showEmpty = isset($_GET['empty']) && $_GET['empty'] == '1';
                 <div class="col-12 col-sm-6 col-xl-3">
                     <div class="stat-card">
                         <div class="stat-icon-wrapper" style="background-color: <?php echo $showEmpty ? '#f3e8ff' : '#fee2e2'; ?>; color: <?php echo $showEmpty ? '#9333ea' : '#dc2626'; ?>;">
-                            <i class="<?php echo $showEmpty ? 'bi bi-file-earmark-text' : 'bi bi-x-circle'; ?>"></i>
+                            <img src="<?php echo $pathToRoot; ?>assets/icons/Models/Draft.svg" alt="Draft" class="stat-icon-svg">
                         </div>
                         <div class="stat-body">
                             <div class="stat-value"><?php echo $showEmpty ? '0' : '1'; ?></div>

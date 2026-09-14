@@ -15,18 +15,6 @@ require_once __DIR__ . '/../includes/header.php';
             <a href="<?php echo $pathToRoot; ?>view/dashboard.php" class="d-flex align-items-center text-decoration-none">
                 <img src="<?php echo $pathToRoot; ?>assets/img/logo_card.png" alt="Durrun Logo" class="nav-brand-logo">
             </a>
-
-            <!-- Platform Top Nav Links -->
-            <nav class="d-none d-xl-flex align-items-center gap-3 ms-3">
-                <a href="<?php echo $pathToRoot; ?>view/dashboard.php" class="nav-top-link active"><i class="bi bi-house-door"></i> Home</a>
-                <a href="#" class="nav-top-link"><i class="bi bi-journal-text"></i> Templates</a>
-                <a href="<?php echo $pathToRoot; ?>view/provider-profile.php" class="nav-top-link"><i class="bi bi-box-seam"></i> Providers</a>
-                <a href="#" class="nav-top-link"><i class="bi bi-code-slash"></i> Playground</a>
-                <a href="#" class="nav-top-link"><i class="bi bi-folder"></i> Projects</a>
-                <a href="#" class="nav-top-link"><i class="bi bi-people"></i> Community</a>
-                <a href="#" class="nav-top-link"><i class="bi bi-window-sidebar"></i> Workspaces</a>
-                <a href="#" class="nav-top-link"><i class="bi bi-tag"></i> Pricing</a>
-            </nav>
         </div>
 
         <div class="nav-right-actions">
@@ -93,7 +81,7 @@ require_once __DIR__ . '/../includes/header.php';
                 <div class="col-12 col-sm-6 col-xl-3">
                     <div class="stat-card">
                         <div class="stat-icon-wrapper stat-icon-blue">
-                            <i class="bi bi-box"></i>
+                            <img src="<?php echo $pathToRoot; ?>assets/icons/Dashboard/Models.svg" alt="Models" class="stat-icon-svg">
                         </div>
                         <div class="stat-body">
                             <div class="stat-label">Models</div>
@@ -112,7 +100,7 @@ require_once __DIR__ . '/../includes/header.php';
                 <div class="col-12 col-sm-6 col-xl-3">
                     <div class="stat-card">
                         <div class="stat-icon-wrapper stat-icon-purple">
-                            <i class="bi bi-file-earmark-text"></i>
+                            <img src="<?php echo $pathToRoot; ?>assets/icons/Dashboard/Templates.svg" alt="Templates" class="stat-icon-svg">
                         </div>
                         <div class="stat-body">
                             <div class="stat-label">Templates</div>
@@ -131,7 +119,7 @@ require_once __DIR__ . '/../includes/header.php';
                 <div class="col-12 col-sm-6 col-xl-3">
                     <div class="stat-card">
                         <div class="stat-icon-wrapper stat-icon-amber">
-                            <i class="bi bi-clock"></i>
+                            <img src="<?php echo $pathToRoot; ?>assets/icons/Dashboard/Pending Submissions.svg" alt="Pending Submissions" class="stat-icon-svg">
                         </div>
                         <div class="stat-body">
                             <div class="stat-label">Pending Submissions</div>
@@ -147,7 +135,7 @@ require_once __DIR__ . '/../includes/header.php';
                 <div class="col-12 col-sm-6 col-xl-3">
                     <div class="stat-card">
                         <div class="stat-icon-wrapper stat-icon-green">
-                            <i class="bi bi-key"></i>
+                            <img src="<?php echo $pathToRoot; ?>assets/icons/Dashboard/API Requests.svg" alt="API Requests" class="stat-icon-svg">
                         </div>
                         <div class="stat-body">
                             <div class="stat-label">API Requests</div>

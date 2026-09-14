@@ -14,18 +14,6 @@ require_once __DIR__ . '/../includes/header.php';
             <a href="<?php echo $pathToRoot; ?>view/dashboard.php" class="d-flex align-items-center text-decoration-none">
                 <img src="<?php echo $pathToRoot; ?>assets/img/logo_card.png" alt="Durrun Logo" class="nav-brand-logo">
             </a>
-
-            <!-- Platform Top Nav Links -->
-            <nav class="d-none d-xl-flex align-items-center gap-3 ms-3">
-                <a href="<?php echo $pathToRoot; ?>view/dashboard.php" class="nav-top-link"><i class="bi bi-house-door"></i> Home</a>
-                <a href="#" class="nav-top-link"><i class="bi bi-journal-text"></i> Templates</a>
-                <a href="<?php echo $pathToRoot; ?>view/provider-profile.php" class="nav-top-link active"><i class="bi bi-box-seam"></i> Providers</a>
-                <a href="#" class="nav-top-link"><i class="bi bi-code-slash"></i> Playground</a>
-                <a href="#" class="nav-top-link"><i class="bi bi-folder"></i> Projects</a>
-                <a href="#" class="nav-top-link"><i class="bi bi-people"></i> Community</a>
-                <a href="#" class="nav-top-link"><i class="bi bi-window-sidebar"></i> Workspaces</a>
-                <a href="#" class="nav-top-link"><i class="bi bi-tag"></i> Pricing</a>
-            </nav>
         </div>
 
         <div class="nav-right-actions">
@@ -96,10 +84,10 @@ require_once __DIR__ . '/../includes/header.php';
                             <h2 class="section-title mb-4">Basic Information</h2>
                             <div class="row g-4">
                                 <div class="col-12 col-sm-4 d-flex flex-column align-items-center">
-                                    <div class="profile-avatar-box position-relative">
-                                        <div class="avatar-text">ACME</div>
+                                    <div class="profile-avatar-box position-relative d-flex align-items-center justify-content-center bg-white p-2">
+                                        <img src="<?php echo $pathToRoot; ?>assets/icons/Provider Profile/Acmeai.svg" alt="Acme AI Logo" style="width: 68px; height: 68px; object-fit: contain;">
                                         <button type="button" class="btn btn-light position-absolute bottom-0 end-0 rounded-circle shadow-sm border p-0 d-flex align-items-center justify-content-center" style="width: 30px; height: 30px; margin-bottom: -5px; margin-right: -5px;" title="Change logo">
-                                            <i class="bi bi-pencil-fill" style="font-size: 0.75rem; color: #0066ff;"></i>
+                                            <img src="<?php echo $pathToRoot; ?>assets/icons/Provider Profile/Edit.svg" alt="Edit" style="width: 14px; height: 14px;">
                                         </button>
                                     </div>
                                     <button type="button" class="btn btn-outline-primary btn-sm mt-3 w-100 fw-semibold" style="border-radius: 8px; border-color: #dbeafe; background: #eff6ff; color: #0066ff;">
@@ -185,7 +173,7 @@ require_once __DIR__ . '/../includes/header.php';
                                 <div class="col-12 col-md-6">
                                     <div class="input-group">
                                         <span class="input-group-text bg-white border-end-0 text-muted" style="border-color: #e2e8f0; border-radius: 8px 0 0 8px;">
-                                            <i class="bi bi-youtube"></i>
+                                            <img src="<?php echo $pathToRoot; ?>assets/icons/Provider Profile/Youtube.svg" alt="YouTube" class="social-icon-svg">
                                         </span>
                                         <input type="url" class="form-control profile-input border-start-0 ps-0" name="youtube" value="https://youtube.com/@acmeai" style="border-radius: 0 8px 8px 0;">
                                     </div>
@@ -193,7 +181,7 @@ require_once __DIR__ . '/../includes/header.php';
                                 <div class="col-12 col-md-6">
                                     <div class="input-group">
                                         <span class="input-group-text bg-white border-end-0 text-muted" style="border-color: #e2e8f0; border-radius: 8px 0 0 8px;">
-                                            <i class="bi bi-github"></i>
+                                            <img src="<?php echo $pathToRoot; ?>assets/icons/Provider Profile/Github.svg" alt="GitHub" class="social-icon-svg">
                                         </span>
                                         <input type="url" class="form-control profile-input border-start-0 ps-0" name="github" value="https://github.com/acmeai" style="border-radius: 0 8px 8px 0;">
                                     </div>
@@ -201,7 +189,7 @@ require_once __DIR__ . '/../includes/header.php';
                                 <div class="col-12 col-md-6">
                                     <div class="input-group">
                                         <span class="input-group-text bg-white border-end-0 text-muted" style="border-color: #e2e8f0; border-radius: 8px 0 0 8px;">
-                                            <i class="bi bi-discord"></i>
+                                            <img src="<?php echo $pathToRoot; ?>assets/icons/Provider Profile/Discord.svg" alt="Discord" class="social-icon-svg">
                                         </span>
                                         <input type="url" class="form-control profile-input border-start-0 ps-0" name="discord" value="https://discord.gg/acmeai" style="border-radius: 0 8px 8px 0;">
                                     </div>
@@ -209,7 +197,7 @@ require_once __DIR__ . '/../includes/header.php';
                                 <div class="col-12 col-md-6">
                                     <div class="input-group">
                                         <span class="input-group-text bg-white border-end-0 text-muted" style="border-color: #e2e8f0; border-radius: 8px 0 0 8px;">
-                                            <i class="bi bi-linkedin"></i>
+                                            <img src="<?php echo $pathToRoot; ?>assets/icons/Provider Profile/Linkedin.svg" alt="LinkedIn" class="social-icon-svg">
                                         </span>
                                         <input type="url" class="form-control profile-input border-start-0 ps-0" name="linkedin" value="https://linkedin.com/company/acmeai" style="border-radius: 0 8px 8px 0;">
                                     </div>
@@ -217,7 +205,7 @@ require_once __DIR__ . '/../includes/header.php';
                                 <div class="col-12 col-md-6">
                                     <div class="input-group">
                                         <span class="input-group-text bg-white border-end-0 text-muted" style="border-color: #e2e8f0; border-radius: 8px 0 0 8px;">
-                                            <i class="bi bi-globe"></i>
+                                            <img src="<?php echo $pathToRoot; ?>assets/icons/Provider Profile/Twitter.svg" alt="Twitter" class="social-icon-svg">
                                         </span>
                                         <input type="url" class="form-control profile-input border-start-0 ps-0" name="blog" value="https://acmeai.com/blog" style="border-radius: 0 8px 8px 0;">
                                     </div>
@@ -258,14 +246,16 @@ require_once __DIR__ . '/../includes/header.php';
 
                             <div class="preview-box p-3 border rounded-3 bg-white">
                                 <div class="d-flex gap-3 align-items-start mb-3">
-                                    <div class="preview-avatar-box">ACME</div>
+                                    <div class="preview-avatar-box d-flex align-items-center justify-content-center p-1 bg-white">
+                                        <img src="<?php echo $pathToRoot; ?>assets/icons/Provider Profile/Acmeai.svg" alt="Acme AI" style="width: 44px; height: 44px; object-fit: contain;">
+                                    </div>
                                     <div>
                                         <div class="preview-title">Acme AI</div>
                                         <div class="text-muted small mb-2">Building safe and powerful AI for everyone.</div>
                                         <div class="d-flex flex-wrap gap-3 text-muted" style="font-size: 0.8rem;">
-                                            <span class="d-flex align-items-center gap-1"><i class="bi bi-link-45deg"></i> acmeai.com</span>
-                                            <span class="d-flex align-items-center gap-1"><i class="bi bi-geo-alt"></i> San Francisco, CA</span>
-                                            <span class="d-flex align-items-center gap-1"><i class="bi bi-calendar-event"></i> Founded 2023</span>
+                                            <span class="d-flex align-items-center gap-1"><img src="<?php echo $pathToRoot; ?>assets/icons/Provider Profile/Vector.svg" alt="" style="width: 13px; height: 13px;"> acmeai.com</span>
+                                            <span class="d-flex align-items-center gap-1"><img src="<?php echo $pathToRoot; ?>assets/icons/Provider Profile/Location.svg" alt="" style="width: 13px; height: 13px;"> San Francisco, CA</span>
+                                            <span class="d-flex align-items-center gap-1"><img src="<?php echo $pathToRoot; ?>assets/icons/Provider Profile/Calender.svg" alt="" style="width: 13px; height: 13px;"> Founded 2023</span>
                                         </div>
                                     </div>
                                 </div>

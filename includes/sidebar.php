@@ -20,7 +20,7 @@ $isModelsActive = in_array($activePage, ['models', 'models-add', 'modelslisting'
         <!-- Dashboard -->
         <li>
             <a href="<?php echo $pathToRoot; ?>view/dashboard.php" class="sidebar-link <?php echo ($activePage === 'dashboard') ? 'active' : ''; ?>">
-                <i class="bi bi-speedometer2"></i>
+                <img src="<?php echo $pathToRoot; ?>assets/icons/Dashboard/Dashboard.svg" alt="Dashboard" class="sidebar-icon-svg">
                 <span>Dashboard</span>
             </a>
         </li>
@@ -28,7 +28,7 @@ $isModelsActive = in_array($activePage, ['models', 'models-add', 'modelslisting'
         <!-- Provider Profile -->
         <li>
             <a href="<?php echo $pathToRoot; ?>view/provider-profile.php" class="sidebar-link <?php echo ($activePage === 'provider-profile') ? 'active' : ''; ?>">
-                <i class="bi bi-person"></i>
+                <img src="<?php echo $pathToRoot; ?>assets/icons/Dashboard/Provider Profile.svg" alt="Provider Profile" class="sidebar-icon-svg">
                 <span>Provider Profile</span>
             </a>
         </li>
@@ -36,35 +36,39 @@ $isModelsActive = in_array($activePage, ['models', 'models-add', 'modelslisting'
         <!-- Models / Pages -->
         <li>
             <a href="<?php echo $pathToRoot; ?>view/pages/pageslisting.php" class="sidebar-link <?php echo $isModelsActive ? 'active' : ''; ?>">
-                <i class="bi bi-box"></i>
+                <img src="<?php echo $pathToRoot; ?>assets/icons/Dashboard/Models.svg" alt="Models" class="sidebar-icon-svg">
                 <span>Models</span>
             </a>
         </li>
 
-        <!-- Templates -->
+        <!-- Templates (Commented out) -->
+        <!--
         <li>
             <a href="#" class="sidebar-link <?php echo ($activePage === 'templates') ? 'active' : ''; ?>">
-                <i class="bi bi-file-earmark-text"></i>
+                <img src="<?php echo $pathToRoot; ?>assets/icons/Dashboard/Templates.svg" alt="Templates" class="sidebar-icon-svg">
                 <span>Templates</span>
             </a>
         </li>
+        -->
 
-        <!-- Submissions -->
+        <!-- Submissions (Commented out) -->
+        <!--
         <li>
             <a href="#" class="sidebar-link <?php echo ($activePage === 'submissions') ? 'active' : ''; ?>">
-                <i class="bi bi-card-checklist"></i>
+                <img src="<?php echo $pathToRoot; ?>assets/icons/Dashboard/Pending Submissions.svg" alt="Submissions" class="sidebar-icon-svg">
                 <span>Submissions</span>
             </a>
         </li>
+        -->
 
         <!-- API Access with Collapsible Submenu -->
         <?php 
-        $isApiActive = in_array($activePage, ['api-access', 'api-overview', 'api-keys', 'api-usage']);
+        $isApiActive = in_array($activePage, ['api-access', 'api-overview', 'api-keys', 'api-usage', 'api-pricing', 'overview', 'keys', 'usage', 'pricing']);
         ?>
         <li>
             <a href="#apiAccessSubmenu" class="sidebar-link d-flex justify-content-between align-items-center <?php echo $isApiActive ? 'active' : ''; ?>" data-bs-toggle="collapse" role="button" aria-expanded="true">
                 <div class="d-flex align-items-center gap-2">
-                    <i class="bi bi-key"></i>
+                    <img src="<?php echo $pathToRoot; ?>assets/icons/Dashboard/API Requests.svg" alt="API Access" class="sidebar-icon-svg">
                     <span>API Access</span>
                 </div>
                 <i class="bi bi-chevron-down" style="font-size: 0.75rem;"></i>
@@ -72,30 +76,37 @@ $isModelsActive = in_array($activePage, ['models', 'models-add', 'modelslisting'
             <div class="collapse show" id="apiAccessSubmenu">
                 <ul class="sidebar-submenu">
                     <li>
-                        <a href="#" class="sidebar-sublink <?php echo ($activePage === 'api-overview') ? 'active text-primary fw-semibold' : ''; ?>">
+                        <a href="<?php echo $pathToRoot; ?>view/api/overview.php" class="sidebar-sublink <?php echo in_array($activePage, ['api-overview', 'overview', 'api-access']) ? 'active text-primary fw-semibold' : ''; ?>">
                             Overview
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="sidebar-sublink <?php echo ($activePage === 'api-keys') ? 'active text-primary fw-semibold' : ''; ?>">
+                        <a href="<?php echo $pathToRoot; ?>view/api/keys.php" class="sidebar-sublink <?php echo in_array($activePage, ['api-keys', 'keys']) ? 'active text-primary fw-semibold' : ''; ?>">
                             API Keys
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="sidebar-sublink <?php echo ($activePage === 'api-usage') ? 'active text-primary fw-semibold' : ''; ?>">
+                        <a href="<?php echo $pathToRoot; ?>view/api/usage.php" class="sidebar-sublink <?php echo in_array($activePage, ['api-usage', 'usage']) ? 'active text-primary fw-semibold' : ''; ?>">
                             Usage & Analytics
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $pathToRoot; ?>view/api/pricing.php" class="sidebar-sublink <?php echo in_array($activePage, ['api-pricing', 'pricing']) ? 'active text-primary fw-semibold' : ''; ?>">
+                            API Pricing
                         </a>
                     </li>
                 </ul>
             </div>
         </li>
 
-        <!-- Settings -->
+        <!-- Settings (Commented out) -->
+        <!--
         <li>
             <a href="#" class="sidebar-link <?php echo ($activePage === 'settings') ? 'active' : ''; ?>">
-                <i class="bi bi-gear"></i>
+                <img src="<?php echo $pathToRoot; ?>assets/icons/Dashboard/Setting.svg" alt="Settings" class="sidebar-icon-svg">
                 <span>Settings</span>
             </a>
         </li>
+        -->
     </ul>
 </aside>

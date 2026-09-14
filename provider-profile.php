@@ -13,18 +13,6 @@ require_once __DIR__ . '/includes/header.php';
             <a href="dashboard.php" class="d-flex align-items-center text-decoration-none">
                 <img src="assets/img/logo_card.png" alt="Durrun Logo" class="nav-brand-logo">
             </a>
-
-            <!-- Platform Top Nav Links -->
-            <nav class="d-none d-xl-flex align-items-center gap-3 ms-3">
-                <a href="dashboard.php" class="nav-top-link"><i class="bi bi-house-door"></i> Home</a>
-                <a href="#" class="nav-top-link"><i class="bi bi-journal-text"></i> Templates</a>
-                <a href="provider-profile.php" class="nav-top-link active"><i class="bi bi-box-seam"></i> Providers</a>
-                <a href="#" class="nav-top-link"><i class="bi bi-code-slash"></i> Playground</a>
-                <a href="#" class="nav-top-link"><i class="bi bi-folder"></i> Projects</a>
-                <a href="#" class="nav-top-link"><i class="bi bi-people"></i> Community</a>
-                <a href="#" class="nav-top-link"><i class="bi bi-window-sidebar"></i> Workspaces</a>
-                <a href="#" class="nav-top-link"><i class="bi bi-tag"></i> Pricing</a>
-            </nav>
         </div>
 
         <div class="nav-right-actions">

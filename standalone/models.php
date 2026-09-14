@@ -241,16 +241,6 @@ $showEmpty = isset($_GET['empty']) && $_GET['empty'] == '1';
             <a href="dashboard.php" class="d-flex align-items-center text-decoration-none">
                 <img src="assets/img/logo_card.png" alt="Durrun Logo" class="nav-brand-logo">
             </a>
-            <nav class="d-none d-xl-flex align-items-center gap-3 ms-3">
-                <a href="dashboard.php" class="nav-top-link"><i class="bi bi-house-door"></i> Home</a>
-                <a href="#" class="nav-top-link"><i class="bi bi-journal-text"></i> Templates</a>
-                <a href="provider-profile.php" class="nav-top-link"><i class="bi bi-box-seam"></i> Providers</a>
-                <a href="#" class="nav-top-link"><i class="bi bi-code-slash"></i> Playground</a>
-                <a href="#" class="nav-top-link"><i class="bi bi-folder"></i> Projects</a>
-                <a href="#" class="nav-top-link"><i class="bi bi-people"></i> Community</a>
-                <a href="#" class="nav-top-link"><i class="bi bi-window-sidebar"></i> Workspaces</a>
-                <a href="#" class="nav-top-link"><i class="bi bi-tag"></i> Pricing</a>
-            </nav>
         </div>
 
         <div class="nav-right-actions">
@@ -289,8 +279,8 @@ $showEmpty = isset($_GET['empty']) && $_GET['empty'] == '1';
                 <li><a href="dashboard.php" class="sidebar-link"><i class="bi bi-speedometer2"></i><span>Dashboard</span></a></li>
                 <li><a href="provider-profile.php" class="sidebar-link"><i class="bi bi-person"></i><span>Provider Profile</span></a></li>
                 <li><a href="models.php" class="sidebar-link active"><i class="bi bi-box"></i><span>Models</span></a></li>
-                <li><a href="#" class="sidebar-link"><i class="bi bi-file-earmark-text"></i><span>Templates</span></a></li>
-                <li><a href="#" class="sidebar-link"><i class="bi bi-card-checklist"></i><span>Submissions</span></a></li>
+                <!-- <li><a href="#" class="sidebar-link"><i class="bi bi-file-earmark-text"></i><span>Templates</span></a></li> -->
+                <!-- <li><a href="#" class="sidebar-link"><i class="bi bi-card-checklist"></i><span>Submissions</span></a></li> -->
                 <li>
                     <a href="#apiSubmenu" class="sidebar-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse">
                         <div class="d-flex align-items-center gap-2"><i class="bi bi-key"></i><span>API Access</span></div>
@@ -304,7 +294,7 @@ $showEmpty = isset($_GET['empty']) && $_GET['empty'] == '1';
                         </ul>
                     </div>
                 </li>
-                <li><a href="#" class="sidebar-link"><i class="bi bi-gear"></i><span>Settings</span></a></li>
+                <!-- <li><a href="#" class="sidebar-link"><i class="bi bi-gear"></i><span>Settings</span></a></li> -->
             </ul>
         </aside>
 

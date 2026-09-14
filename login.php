@@ -22,7 +22,7 @@ require_once __DIR__ . '/includes/header.php';
         <div class="login-left-content">
             <!-- Brand Logo -->
             <div class="brand-logo-wrapper">
-                <img src="assets/img/logo_card.png" alt="Durrun Logo" height="38">
+                <img src="assets/img/logo.svg" alt="Durrun Logo" height="38">
             </div>
 
             <!-- Main Heading -->
@@ -36,7 +36,7 @@ require_once __DIR__ . '/includes/header.php';
                 <!-- Item 1 -->
                 <div class="feature-item">
                     <div class="feature-icon-box">
-                        <i class="bi bi-people"></i>
+                        <img src="assets/icons/Login/For Partners.svg" alt="For Partners" style="width: 24px; height: 24px;">
                     </div>
                     <div>
                         <div class="feature-title">For Partners</div>
@@ -47,7 +47,7 @@ require_once __DIR__ . '/includes/header.php';
                 <!-- Item 2 -->
                 <div class="feature-item">
                     <div class="feature-icon-box">
-                        <i class="bi bi-megaphone"></i>
+                        <img src="assets/icons/Login/Access Ads.svg" alt="Access Ads" style="width: 24px; height: 24px;">
                     </div>
                     <div>
                         <div class="feature-title">Access Ads</div>
@@ -58,7 +58,7 @@ require_once __DIR__ . '/includes/header.php';
                 <!-- Item 3 -->
                 <div class="feature-item">
                     <div class="feature-icon-box">
-                        <i class="bi bi-code-slash"></i>
+                        <img src="assets/icons/Login/API.svg" alt="API Access" style="width: 24px; height: 24px;">
                     </div>
                     <div>
                         <div class="feature-title">API Access</div>
@@ -69,7 +69,7 @@ require_once __DIR__ . '/includes/header.php';
                 <!-- Item 4 -->
                 <div class="feature-item">
                     <div class="feature-icon-box">
-                        <i class="bi bi-grid"></i>
+                        <img src="assets/icons/Login/All in one portal.svg" alt="All in One Portal" style="width: 24px; height: 24px;">
                     </div>
                     <div>
                         <div class="feature-title">All in One Portal</div>
@@ -90,7 +90,7 @@ require_once __DIR__ . '/includes/header.php';
         <div class="login-card-wrapper">
             <div class="login-card">
                 <!-- Center Logo -->
-                <img src="assets/img/logo_card.png" alt="Durrun Logo" class="card-logo">
+                <img src="assets/img/logo.svg" alt="Durrun Logo" class="card-logo">
 
                 <h2 class="login-card-title">Sign In</h2>
                 <p class="login-card-subtitle">Access your partner portal</p>
@@ -132,13 +132,8 @@ require_once __DIR__ . '/includes/header.php';
                     </div>
 
                     <!-- Google Sign In Button -->
-                    <a href="dashboard.php" class="btn btn-google text-decoration-none">
-                        <svg width="18" height="18" viewBox="0 0 24 24">
-                            <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
-                            <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
-                            <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
-                            <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
-                        </svg>
+                    <a href="dashboard.php" class="btn btn-google text-decoration-none d-flex align-items-center justify-content-center gap-2">
+                        <img src="assets/icons/Login/Google.svg" alt="Google" style="width: 18px; height: 18px;">
                         <span>Continue with Google</span>
                     </a>
 
