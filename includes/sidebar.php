@@ -63,7 +63,7 @@ $isModelsActive = in_array($activePage, ['models', 'models-add', 'modelslisting'
 
         <!-- API Access with Collapsible Submenu -->
         <?php 
-        $isApiActive = in_array($activePage, ['api-access', 'api-overview', 'api-keys', 'api-usage', 'api-pricing', 'overview', 'keys', 'usage', 'pricing']);
+        $isApiActive = in_array($activePage, ['api-access', 'api-overview', 'api-keys', 'api-usage', 'api-pricing', 'overview', 'keys', 'usage', 'pricing', 'create-key', 'addkey']);
         ?>
         <li>
             <a href="#apiAccessSubmenu" class="sidebar-link d-flex justify-content-between align-items-center <?php echo $isApiActive ? 'active' : ''; ?>" data-bs-toggle="collapse" role="button" aria-expanded="true">
@@ -81,7 +81,7 @@ $isModelsActive = in_array($activePage, ['models', 'models-add', 'modelslisting'
                         </a>
                     </li>
                     <li>
-                        <a href="<?php echo $pathToRoot; ?>view/api/keys.php" class="sidebar-sublink <?php echo in_array($activePage, ['api-keys', 'keys']) ? 'active text-primary fw-semibold' : ''; ?>">
+                        <a href="<?php echo $pathToRoot; ?>view/api/keys.php" class="sidebar-sublink <?php echo in_array($activePage, ['api-keys', 'keys', 'create-key', 'addkey']) ? 'active text-primary fw-semibold' : ''; ?>">
                             API Keys
                         </a>
                     </li>

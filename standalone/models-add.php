@@ -466,6 +466,8 @@
                             <input type="text" class="form-control profile-input" name="model_id" placeholder="e.g. acme-vision-1" required>
                         </div>
 
+                        <!-- Category Dropdown (Commented out) -->
+                        <!--
                         <div class="col-12 col-md-6">
                             <label class="form-label-custom">Category <span class="text-primary">*</span></label>
                             <select class="form-select profile-input" name="category" required>
@@ -477,7 +479,10 @@
                                 <option value="Multimodal">Multimodal</option>
                             </select>
                         </div>
+                        -->
 
+                        <!-- Capabilities Dropdown (Commented out) -->
+                        <!--
                         <div class="col-12 col-md-6">
                             <label class="form-label-custom">Capabilities <span class="text-primary">*</span></label>
                             <div class="border rounded p-1 d-flex flex-wrap align-items-center gap-1 bg-white" style="min-height: 42px; border-color: #e2e8f0 !important;">
@@ -486,6 +491,7 @@
                                 <i class="bi bi-chevron-down ms-auto me-2 text-muted" style="font-size: 0.75rem;"></i>
                             </div>
                         </div>
+                        -->
 
                         <div class="col-12">
                             <label class="form-label-custom">Short Description <span class="text-primary">*</span></label>

@@ -2,6 +2,19 @@
 $pageTitle = "Add New Model - Durrun Partner Portal";
 $activePage = "addpages";
 require_once __DIR__ . '/../../includes/header.php';
+
+$editModelId = $_GET['model'] ?? null;
+$isEditing = !empty($editModelId);
+$modelsSample = [
+    'acme-vision-1' => ['name' => 'Acme Vision 1.0', 'category' => 'Image', 'desc' => 'Next-generation vision-language model for visual analysis, OCR, and multimodal reasoning.'],
+    'acme-chat-pro' => ['name' => 'Acme Chat Pro', 'category' => 'Text', 'desc' => 'Conversational LLM optimized for complex dialog, creative writing, and programming.'],
+    'acme-embed-1' => ['name' => 'Acme Embeddings', 'category' => 'Embedding', 'desc' => 'Ultra-dense text vector embeddings for semantic search, clustering, and RAG pipelines.'],
+    'acme-image-xl' => ['name' => 'Acme Image XL', 'category' => 'Image', 'desc' => 'Photorealistic text-to-image synthesis supporting resolutions up to 2048x2048.'],
+    'acme-audio-1' => ['name' => 'Acme Audio', 'category' => 'Audio', 'desc' => 'Neural audio processing and mastering engine for voice synthesis and audio restoration.']
+];
+$editData = ($isEditing && isset($modelsSample[$editModelId])) ? $modelsSample[$editModelId] : null;
+$pageHeading = $isEditing ? "Edit Model: " . htmlspecialchars($editData['name'] ?? $editModelId) : "Add New Model";
+$pageSubHeading = $isEditing ? "Update your model details, API endpoints, and configuration." : "Submit your model details. Our team will review it before it goes live on Durrun.";
 ?>
 
 <div class="app-wrapper">
@@ -59,15 +72,15 @@ require_once __DIR__ . '/../../includes/header.php';
             <nav aria-label="breadcrumb" class="mb-2">
                 <ol class="breadcrumb" style="font-size: 0.85rem;">
                     <li class="breadcrumb-item"><a href="pageslisting.php" class="text-decoration-none" style="color: #0066ff;">Models</a></li>
-                    <li class="breadcrumb-item active text-muted" aria-current="page">Add New Model</li>
+                    <li class="breadcrumb-item active text-muted" aria-current="page"><?php echo $isEditing ? 'Edit Model' : 'Add New Model'; ?></li>
                 </ol>
             </nav>
 
             <!-- Header & Action Buttons -->
             <div class="welcome-header align-items-center mb-4">
                 <div>
-                    <h1 class="welcome-title">Add New Model</h1>
-                    <p class="welcome-subtitle">Submit your model details. Our team will review it before it goes live on Durrun.</p>
+                    <h1 class="welcome-title"><?php echo $pageHeading; ?></h1>
+                    <p class="welcome-subtitle"><?php echo $pageSubHeading; ?></p>
                 </div>
                 <div class="d-flex align-items-center gap-2">
                     <button type="button" class="btn btn-outline-secondary px-3 py-2 fw-semibold" style="border-radius: 8px; font-size: 0.95rem; background: #ffffff;">
@@ -96,26 +109,31 @@ require_once __DIR__ . '/../../includes/header.php';
                     <div class="row g-3">
                         <div class="col-12 col-md-6">
                             <label class="form-label-custom">Model Name <span class="text-primary">*</span></label>
-                            <input type="text" class="form-control profile-input" name="model_name" placeholder="e.g. Acme Vision 1.0" required>
+                            <input type="text" class="form-control profile-input" name="model_name" placeholder="e.g. Acme Vision 1.0" value="<?php echo htmlspecialchars($editData['name'] ?? ''); ?>" required>
                         </div>
 
                         <div class="col-12 col-md-6">
                             <label class="form-label-custom">Model ID <span class="text-primary">*</span></label>
-                            <input type="text" class="form-control profile-input" name="model_id" placeholder="e.g. acme-vision-1" required>
+                            <input type="text" class="form-control profile-input" name="model_id" placeholder="e.g. acme-vision-1" value="<?php echo htmlspecialchars($editModelId ?? ''); ?>" required>
                         </div>
 
+                        <!-- Category Dropdown (Commented out) -->
+                        <!--
                         <div class="col-12 col-md-6">
                             <label class="form-label-custom">Category <span class="text-primary">*</span></label>
                             <select class="form-select profile-input" name="category" required>
                                 <option value="">Select a category</option>
-                                <option value="Image">Image</option>
-                                <option value="Text">Text</option>
-                                <option value="Embedding">Embedding</option>
-                                <option value="Audio">Audio</option>
+                                <option value="Image" <?php echo ($editData && $editData['category'] === 'Image') ? 'selected' : ''; ?>>Image</option>
+                                <option value="Text" <?php echo ($editData && $editData['category'] === 'Text') ? 'selected' : ''; ?>>Text</option>
+                                <option value="Embedding" <?php echo ($editData && $editData['category'] === 'Embedding') ? 'selected' : ''; ?>>Embedding</option>
+                                <option value="Audio" <?php echo ($editData && $editData['category'] === 'Audio') ? 'selected' : ''; ?>>Audio</option>
                                 <option value="Multimodal">Multimodal</option>
                             </select>
                         </div>
+                        -->
 
+                        <!-- Capabilities Dropdown (Commented out) -->
+                        <!--
                         <div class="col-12 col-md-6">
                             <label class="form-label-custom">Capabilities <span class="text-primary">*</span></label>
                             <div class="border rounded p-1 d-flex flex-wrap align-items-center gap-1 bg-white" style="min-height: 42px; border-color: #e2e8f0 !important;">
@@ -124,10 +142,11 @@ require_once __DIR__ . '/../../includes/header.php';
                                 <i class="bi bi-chevron-down ms-auto me-2 text-muted" style="font-size: 0.75rem;"></i>
                             </div>
                         </div>
+                        -->
 
                         <div class="col-12">
                             <label class="form-label-custom">Short Description <span class="text-primary">*</span></label>
-                            <textarea class="form-control profile-input" name="short_description" rows="2" placeholder="Briefly describe what your model does (max 160 characters)" required></textarea>
+                            <textarea class="form-control profile-input" name="short_description" rows="2" placeholder="Briefly describe what your model does (max 160 characters)" required><?php echo htmlspecialchars($editData['desc'] ?? ''); ?></textarea>
                         </div>
 
                         <div class="col-12">
@@ -703,11 +722,11 @@ curl -X POST &quot;https://api.durrun.com/v1/models/predict&quot; \
         const el = document.getElementById(textareaId);
         if (el) {
             navigator.clipboard.writeText(el.value).then(() => {
-                alert('Code copied to clipboard!');
+                showGlobalToast('Code copied to clipboard!');
             }).catch(() => {
                 el.select();
                 document.execCommand('copy');
-                alert('Code copied to clipboard!');
+                showGlobalToast('Code copied to clipboard!');
             });
         }
     }

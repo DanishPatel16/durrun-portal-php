@@ -473,7 +473,7 @@ require_once __DIR__ . '/../../includes/header.php';
                         <span><i class="bi bi-receipt me-2 text-primary"></i>View Invoices & Billing History</span>
                         <i class="bi bi-chevron-right text-muted small"></i>
                     </button>
-                    <button type="button" class="btn btn-outline-danger text-start py-2 px-3 fw-medium d-flex justify-content-between align-items-center" style="border-radius: 8px;" onclick="alert('Subscription cancellation request logged.')">
+                    <button type="button" class="btn btn-outline-danger text-start py-2 px-3 fw-medium d-flex justify-content-between align-items-center" style="border-radius: 8px;" onclick="confirmCancelSubscription()">
                         <span><i class="bi bi-x-circle me-2"></i>Cancel Subscription</span>
                         <i class="bi bi-chevron-right small"></i>
                     </button>
@@ -541,8 +541,8 @@ require_once __DIR__ . '/../../includes/header.php';
     function confirmUpgrade() {
         const modalEl = document.getElementById('upgradePlanModal');
         const modal = bootstrap.Modal.getInstance(modalEl);
-        modal.hide();
-        alert('Plan updated successfully! Your account features have been unlocked.');
+        if (modal) modal.hide();
+        showGlobalToast('Plan updated successfully! Your account features have been unlocked.');
     }
 
     function handleBuyCredits(e) {
@@ -551,8 +551,22 @@ require_once __DIR__ . '/../../includes/header.php';
         const credits = selected ? parseInt(selected.value).toLocaleString() : '10,000';
         const modalEl = document.getElementById('buyCreditsModal');
         const modal = bootstrap.Modal.getInstance(modalEl);
-        modal.hide();
-        alert('Successfully purchased ' + credits + ' additional API credits!');
+        if (modal) modal.hide();
+        showGlobalToast('Successfully purchased ' + credits + ' additional API credits!');
+    }
+
+    function confirmCancelSubscription() {
+        showConfirmPrompt({
+            title: 'Cancel Subscription',
+            itemName: 'Pro Plan',
+            message: 'Are you sure you want to cancel your <strong>Pro Plan</strong> subscription? At the end of your billing cycle, your limits will revert to the Free tier.',
+            confirmText: 'Yes, Cancel Subscription',
+            confirmBtnClass: 'btn-danger',
+            iconClass: 'bi-x-circle-fill',
+            onConfirm: function() {
+                showGlobalToast('Subscription cancellation request logged successfully.', 'warning');
+            }
+        });
     }
 </script>
 

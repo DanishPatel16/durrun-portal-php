@@ -71,10 +71,10 @@ require_once __DIR__ . '/../../includes/header.php';
                     <p class="welcome-subtitle">Create, view, and manage your API keys to access Durrun APIs.</p>
                 </div>
                 <div>
-                    <button type="button" class="btn btn-primary d-inline-flex align-items-center gap-2 px-3 py-2 fw-semibold" style="background-color: #0066ff; border-radius: 8px; font-size: 0.92rem;" data-bs-toggle="modal" data-bs-target="#createApiKeyModal">
+                    <a href="create-key.php" class="btn btn-primary d-inline-flex align-items-center gap-2 px-3 py-2 fw-semibold" style="background-color: #0066ff; border-radius: 8px; font-size: 0.92rem;">
                         <i class="bi bi-plus-lg"></i>
                         <span>Create New API Key</span>
-                    </button>
+                    </a>
                 </div>
             </div>
 
@@ -281,71 +281,6 @@ require_once __DIR__ . '/../../includes/header.php';
     </div>
 </div>
 
-<!-- ========================================================
-     MODAL: CREATE NEW API KEY
-     ======================================================== -->
-<div class="modal fade" id="createApiKeyModal" tabindex="-1" aria-labelledby="createApiKeyModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content border-0 shadow" style="border-radius: 14px;">
-            <div class="modal-header border-bottom px-4 py-3">
-                <h5 class="modal-title fw-bold" id="createApiKeyModalLabel" style="font-size: 1.1rem;">Create New API Key</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body p-4">
-                <form id="newKeyForm">
-                    <div class="mb-3">
-                        <label class="form-label-custom">Key Name <span class="text-primary">*</span></label>
-                        <input type="text" class="form-control profile-input" id="modalKeyName" placeholder="e.g. Staging Server Key" required>
-                        <span class="text-muted" style="font-size: 0.78rem;">Choose a name to identify where this key is used.</span>
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label-custom">Expiration</label>
-                        <select class="form-select profile-input" id="modalKeyExpiry">
-                            <option value="never" selected>Never expire</option>
-                            <option value="30">30 days</option>
-                            <option value="60">60 days</option>
-                            <option value="90">90 days</option>
-                        </select>
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label-custom">Environment & Permissions</label>
-                        <div class="d-flex flex-column gap-2 mt-1">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="keyType" id="keyTypeLive" value="live" checked>
-                                <label class="form-check-label fw-semibold small" for="keyTypeLive">Live Key (Production access to models)</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="keyType" id="keyTypeTest" value="test">
-                                <label class="form-check-label fw-semibold small" for="keyTypeTest">Test Key (Sandbox environment)</label>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-
-                <!-- Generated Key Success Box (Hidden by default) -->
-                <div id="newKeyGeneratedBox" class="d-none">
-                    <div class="alert alert-success d-flex align-items-center gap-2 py-2 px-3 mb-3" style="font-size: 0.85rem;">
-                        <i class="bi bi-check-circle-fill"></i>
-                        <span>API key created successfully! Copy it now.</span>
-                    </div>
-                    <label class="form-label-custom">Your API Key</label>
-                    <div class="d-flex align-items-center gap-2 p-2 rounded border bg-light">
-                        <input type="text" id="newGeneratedKeyInput" class="form-control form-control-sm border-0 bg-transparent font-monospace" readonly>
-                        <button type="button" class="btn btn-sm btn-primary px-3" onclick="copyNewKey(this)">Copy</button>
-                    </div>
-                    <span class="text-danger small mt-2 d-block">Make sure to copy your API key now. You won't be able to see it again!</span>
-                </div>
-            </div>
-            <div class="modal-footer border-top px-4 py-3">
-                <button type="button" class="btn btn-light px-3 py-2 fw-semibold" data-bs-dismiss="modal" id="modalCloseBtn" style="border-radius: 8px;">Cancel</button>
-                <button type="button" class="btn btn-primary px-3 py-2 fw-semibold" id="modalGenerateBtn" onclick="generateApiKey()" style="background-color: #0066ff; border-radius: 8px;">Create API Key</button>
-            </div>
-        </div>
-    </div>
-</div>
-
 <script>
     // Responsive sidebar toggle for mobile
     const toggleBtn = document.getElementById('sidebarToggleBtn');
@@ -356,12 +291,13 @@ require_once __DIR__ . '/../../includes/header.php';
         });
     }
 
-    // Helper to copy snippet
+    // Helper to copy snippet with feedback
     function copySnippet(text, btn) {
         navigator.clipboard.writeText(text).then(() => {
             const orig = btn.innerHTML;
             btn.innerHTML = '<i class="bi bi-check2 text-success"></i>';
             setTimeout(() => { btn.innerHTML = orig; }, 1800);
+            showGlobalToast('API Key copied to clipboard!');
         });
     }
 
@@ -389,70 +325,68 @@ require_once __DIR__ . '/../../includes/header.php';
         });
     });
 
-    // Generate API Key flow
-    function generateApiKey() {
-        const nameInput = document.getElementById('modalKeyName');
-        if (!nameInput.value.trim()) {
-            nameInput.focus();
-            return;
+    // Check if a newly generated key was submitted from create-key.php
+    document.addEventListener('DOMContentLoaded', function() {
+        try {
+            const newKeyData = sessionStorage.getItem('newDurrunKey');
+            if (newKeyData) {
+                const item = JSON.parse(newKeyData);
+                sessionStorage.removeItem('newDurrunKey');
+
+                const tbody = document.querySelector('#apiKeysTable tbody');
+                if (tbody && item.key) {
+                    const newRow = document.createElement('tr');
+                    newRow.setAttribute('data-status', 'active');
+                    newRow.className = 'table-success-subtle';
+                    newRow.style.backgroundColor = '#f0fdf4';
+                    newRow.innerHTML = `
+                        <td class="ps-4 py-3 fw-bold text-dark">
+                            ${item.name || 'New API Key'}
+                            <span class="badge bg-success-subtle text-success border border-success-subtle ms-2 px-2 py-0.5" style="font-size: 0.72rem;">New</span>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center gap-2 font-monospace text-muted" style="font-size: 0.85rem;">
+                                <span>${item.key.substring(0, 24)}...</span>
+                                <button type="button" class="btn btn-sm btn-link text-primary p-0" onclick="copySnippet('${item.key}', this)" title="Copy API Key">
+                                    <i class="bi bi-copy"></i>
+                                </button>
+                            </div>
+                        </td>
+                        <td class="text-muted">${item.createdOn || 'Just now'}</td>
+                        <td class="text-muted">Never</td>
+                        <td>
+                            <span class="badge-status-active">
+                                <span class="status-dot"></span> Active
+                            </span>
+                        </td>
+                        <td class="text-end pe-4">
+                            <div class="dropdown">
+                                <button class="btn btn-sm btn-light border-0 text-muted" type="button" data-bs-toggle="dropdown">
+                                    <i class="bi bi-three-dots"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0" style="border-radius: 8px;">
+                                    <li><a class="dropdown-item py-1 small" href="javascript:void(0)" onclick="copySnippet('${item.key}', this)"><i class="bi bi-clipboard me-2"></i>Copy Key</a></li>
+                                    <li><a class="dropdown-item py-1 small text-danger" href="javascript:void(0)" onclick="revokeKey(this)"><i class="bi bi-slash-circle me-2"></i>Revoke Key</a></li>
+                                    <li><a class="dropdown-item py-1 small text-danger" href="javascript:void(0)" onclick="deleteKeyRow(this)"><i class="bi bi-trash me-2"></i>Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    `;
+                    tbody.prepend(newRow);
+
+                    // Update counts
+                    const statTotal = document.getElementById('statTotalKeys');
+                    const statActive = document.getElementById('statActiveKeys');
+                    if (statTotal) statTotal.textContent = parseInt(statTotal.textContent) + 1;
+                    if (statActive) statActive.textContent = parseInt(statActive.textContent) + 1;
+
+                    showGlobalToast(`API Key "${item.name}" successfully created!`);
+                }
+            }
+        } catch (e) {
+            console.error('Error loading new key', e);
         }
-
-        const type = document.querySelector('input[name="keyType"]:checked').value;
-        const randomHex = Array.from(crypto.getRandomValues(new Uint8Array(16))).map(b => b.toString(16).padStart(2, '0')).join('');
-        const key = `durrun_${type}_${randomHex}`;
-
-        document.getElementById('newGeneratedKeyInput').value = key;
-        document.getElementById('newKeyForm').classList.add('d-none');
-        document.getElementById('newKeyGeneratedBox').classList.remove('d-none');
-        document.getElementById('modalGenerateBtn').classList.add('d-none');
-        document.getElementById('modalCloseBtn').textContent = 'Done';
-
-        // Add row to table
-        const tbody = document.querySelector('#apiKeysTable tbody');
-        const now = new Date();
-        const formattedDate = now.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' }) + ' ' + now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
-
-        const newRow = document.createElement('tr');
-        newRow.setAttribute('data-status', 'active');
-        newRow.innerHTML = `
-            <td class="ps-4 py-3 fw-bold text-dark">${nameInput.value.trim()}</td>
-            <td>
-                <div class="d-flex align-items-center gap-2 font-monospace text-muted" style="font-size: 0.85rem;">
-                    <span>${key.substring(0, 24)}...</span>
-                    <button type="button" class="btn btn-sm btn-link text-primary p-0" onclick="copySnippet('${key}', this)" title="Copy API Key">
-                        <i class="bi bi-copy"></i>
-                    </button>
-                </div>
-            </td>
-            <td class="text-muted">${formattedDate}</td>
-            <td class="text-muted">Just now</td>
-            <td>
-                <span class="badge-status-active">
-                    <span class="status-dot"></span> Active
-                </span>
-            </td>
-            <td class="text-end pe-4">
-                <div class="dropdown">
-                    <button class="btn btn-sm btn-light border-0 text-muted" type="button" data-bs-toggle="dropdown">
-                        <i class="bi bi-three-dots"></i>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0" style="border-radius: 8px;">
-                        <li><a class="dropdown-item py-1 small" href="javascript:void(0)" onclick="copySnippet('${key}', this)"><i class="bi bi-clipboard me-2"></i>Copy Key</a></li>
-                        <li><a class="dropdown-item py-1 small text-danger" href="javascript:void(0)" onclick="revokeKey(this)"><i class="bi bi-slash-circle me-2"></i>Revoke Key</a></li>
-                    </ul>
-                </div>
-            </td>
-        `;
-        tbody.prepend(newRow);
-
-        // Update counts
-        const statTotal = document.getElementById('statTotalKeys');
-        const statActive = document.getElementById('statActiveKeys');
-        if (statTotal && statActive) {
-            statTotal.textContent = parseInt(statTotal.textContent) + 1;
-            statActive.textContent = parseInt(statActive.textContent) + 1;
-        }
-    }
+    });
 
     function copyNewKey(btn) {
         const input = document.getElementById('newGeneratedKeyInput');
@@ -464,28 +398,58 @@ require_once __DIR__ . '/../../includes/header.php';
 
     function revokeKey(el) {
         const row = el.closest('tr');
-        if (row && confirm('Are you sure you want to revoke this API key? Applications using it will no longer be authenticated.')) {
-            row.setAttribute('data-status', 'revoked');
-            const badgeTd = row.querySelectorAll('td')[4];
-            badgeTd.innerHTML = `
-                <span class="badge bg-danger-subtle text-danger border border-danger-subtle px-2 py-1 rounded-pill" style="font-size: 0.75rem; font-weight: 600;">
-                    <i class="bi bi-slash-circle me-1"></i> Revoked
-                </span>
-            `;
-            const statActive = document.getElementById('statActiveKeys');
-            const statRevoked = document.getElementById('statRevokedKeys');
-            if (statActive && statRevoked) {
-                statActive.textContent = Math.max(0, parseInt(statActive.textContent) - 1);
-                statRevoked.textContent = parseInt(statRevoked.textContent) + 1;
+        if (!row) return;
+        const keyName = row.querySelector('td:first-child')?.textContent?.trim() || 'API Key';
+
+        showConfirmPrompt({
+            title: 'Revoke API Key',
+            itemName: keyName,
+            iconClass: 'bi-slash-circle-fill',
+            iconColor: '#f59e0b',
+            iconBg: '#fef3c7',
+            confirmBtnClass: 'btn-warning text-white',
+            confirmText: 'Yes, Revoke Key',
+            message: `Are you sure you want to revoke <strong class="text-dark">"${keyName}"</strong>? Any applications or services currently using this API key will immediately lose access and fail authentication.`,
+            onConfirm: function() {
+                row.setAttribute('data-status', 'revoked');
+                const badgeTd = row.querySelectorAll('td')[4];
+                if (badgeTd) {
+                    badgeTd.innerHTML = `
+                        <span class="badge bg-danger-subtle text-danger border border-danger-subtle px-2 py-1 rounded-pill" style="font-size: 0.75rem; font-weight: 600;">
+                            <i class="bi bi-slash-circle me-1"></i> Revoked
+                        </span>
+                    `;
+                }
+                const statActive = document.getElementById('statActiveKeys');
+                const statRevoked = document.getElementById('statRevokedKeys');
+                if (statActive && statRevoked) {
+                    statActive.textContent = Math.max(0, parseInt(statActive.textContent) - 1);
+                    statRevoked.textContent = parseInt(statRevoked.textContent) + 1;
+                }
+                showGlobalToast(`API Key "${keyName}" was revoked successfully.`, 'warning');
             }
-        }
+        });
     }
 
     function deleteKeyRow(el) {
         const row = el.closest('tr');
-        if (row && confirm('Delete this key record?')) {
-            row.remove();
-        }
+        if (!row) return;
+        const keyName = row.querySelector('td:first-child')?.textContent?.trim() || 'API Key';
+
+        showConfirmPrompt({
+            title: 'Delete API Key',
+            itemName: keyName,
+            message: `Are you sure you want to delete the record for <strong class="text-dark">"${keyName}"</strong>? This will permanently remove it from your API key list.`,
+            confirmText: 'Yes, Delete Key',
+            confirmBtnClass: 'btn-danger',
+            iconClass: 'bi-trash3-fill',
+            onConfirm: function() {
+                row.style.transition = 'all 0.3s ease';
+                row.style.opacity = '0';
+                setTimeout(() => row.remove(), 300);
+                showGlobalToast(`API Key "${keyName}" record deleted.`);
+            }
+        });
     }
 </script>
 

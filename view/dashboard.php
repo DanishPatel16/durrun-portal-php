@@ -221,7 +221,18 @@ require_once __DIR__ . '/../includes/header.php';
                                 <td>Template</td>
                                 <td>Aug 25, 2025</td>
                                 <td><span class="badge-status badge-under-review">Under Review</span></td>
-                                <td style="text-align: right;"><button class="btn-actions-menu" type="button"><i class="bi bi-three-dots"></i></button></td>
+                                <td style="text-align: right;">
+                                    <div class="dropdown">
+                                        <button class="btn-actions-menu" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="More options">
+                                            <i class="bi bi-three-dots"></i>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0" style="border-radius: 8px; font-size: 0.85rem; min-width: 140px;">
+                                            <li><a class="dropdown-item py-1.5" href="<?php echo $pathToRoot; ?>view/pages/pageslisting.php"><i class="bi bi-eye me-2 text-primary"></i>View</a></li>
+                                            <li><hr class="dropdown-divider my-1"></li>
+                                            <li><a class="dropdown-item py-1.5 text-danger" href="javascript:void(0)" onclick="handleDeleteSubmission('Blog Post Generator', this)"><i class="bi bi-trash me-2"></i>Delete</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
                             </tr>
 
                             <!-- Row 2 -->
@@ -230,7 +241,18 @@ require_once __DIR__ . '/../includes/header.php';
                                 <td>Model</td>
                                 <td>Aug 22, 2025</td>
                                 <td><span class="badge-status badge-approved">Approved</span></td>
-                                <td style="text-align: right;"><button class="btn-actions-menu" type="button"><i class="bi bi-three-dots"></i></button></td>
+                                <td style="text-align: right;">
+                                    <div class="dropdown">
+                                        <button class="btn-actions-menu" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="More options">
+                                            <i class="bi bi-three-dots"></i>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0" style="border-radius: 8px; font-size: 0.85rem; min-width: 140px;">
+                                            <li><a class="dropdown-item py-1.5" href="<?php echo $pathToRoot; ?>view/pages/pageslisting.php"><i class="bi bi-eye me-2 text-primary"></i>View</a></li>
+                                            <li><hr class="dropdown-divider my-1"></li>
+                                            <li><a class="dropdown-item py-1.5 text-danger" href="javascript:void(0)" onclick="handleDeleteSubmission('Acme Vision 1.0', this)"><i class="bi bi-trash me-2"></i>Delete</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
                             </tr>
 
                             <!-- Row 3 -->
@@ -239,7 +261,18 @@ require_once __DIR__ . '/../includes/header.php';
                                 <td>Template</td>
                                 <td>Aug 20, 2025</td>
                                 <td><span class="badge-status badge-changes-requested">Changes Requested</span></td>
-                                <td style="text-align: right;"><button class="btn-actions-menu" type="button"><i class="bi bi-three-dots"></i></button></td>
+                                <td style="text-align: right;">
+                                    <div class="dropdown">
+                                        <button class="btn-actions-menu" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="More options">
+                                            <i class="bi bi-three-dots"></i>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0" style="border-radius: 8px; font-size: 0.85rem; min-width: 140px;">
+                                            <li><a class="dropdown-item py-1.5" href="<?php echo $pathToRoot; ?>view/pages/pageslisting.php"><i class="bi bi-eye me-2 text-primary"></i>View</a></li>
+                                            <li><hr class="dropdown-divider my-1"></li>
+                                            <li><a class="dropdown-item py-1.5 text-danger" href="javascript:void(0)" onclick="handleDeleteSubmission('Email Assistant', this)"><i class="bi bi-trash me-2"></i>Delete</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
                             </tr>
 
                             <!-- Row 4 -->
@@ -248,7 +281,18 @@ require_once __DIR__ . '/../includes/header.php';
                                 <td>Model</td>
                                 <td>Aug 18, 2025</td>
                                 <td><span class="badge-status badge-live">Live</span></td>
-                                <td style="text-align: right;"><button class="btn-actions-menu" type="button"><i class="bi bi-three-dots"></i></button></td>
+                                <td style="text-align: right;">
+                                    <div class="dropdown">
+                                        <button class="btn-actions-menu" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="More options">
+                                            <i class="bi bi-three-dots"></i>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0" style="border-radius: 8px; font-size: 0.85rem; min-width: 140px;">
+                                            <li><a class="dropdown-item py-1.5" href="<?php echo $pathToRoot; ?>view/pages/pageslisting.php"><i class="bi bi-eye me-2 text-primary"></i>View</a></li>
+                                            <li><hr class="dropdown-divider my-1"></li>
+                                            <li><a class="dropdown-item py-1.5 text-danger" href="javascript:void(0)" onclick="handleDeleteSubmission('Acme LLM 1.2', this)"><i class="bi bi-trash me-2"></i>Delete</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
                             </tr>
 
                             <!-- Row 5 -->
@@ -257,7 +301,18 @@ require_once __DIR__ . '/../includes/header.php';
                                 <td>Template</td>
                                 <td>Aug 15, 2025</td>
                                 <td><span class="badge-status badge-draft">Draft</span></td>
-                                <td style="text-align: right;"><button class="btn-actions-menu" type="button"><i class="bi bi-three-dots"></i></button></td>
+                                <td style="text-align: right;">
+                                    <div class="dropdown">
+                                        <button class="btn-actions-menu" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="More options">
+                                            <i class="bi bi-three-dots"></i>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0" style="border-radius: 8px; font-size: 0.85rem; min-width: 140px;">
+                                            <li><a class="dropdown-item py-1.5" href="<?php echo $pathToRoot; ?>view/pages/pageslisting.php"><i class="bi bi-eye me-2 text-primary"></i>View</a></li>
+                                            <li><hr class="dropdown-divider my-1"></li>
+                                            <li><a class="dropdown-item py-1.5 text-danger" href="javascript:void(0)" onclick="handleDeleteSubmission('Code Explainer', this)"><i class="bi bi-trash me-2"></i>Delete</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -350,6 +405,29 @@ require_once __DIR__ . '/../includes/header.php';
             }
         });
     });
+
+    /**
+     * Delete Submission Handler with Global Confirmation Prompt
+     */
+    function handleDeleteSubmission(name, btnEl) {
+        const row = btnEl ? btnEl.closest('tr') : null;
+        showConfirmPrompt({
+            title: 'Delete Submission',
+            itemName: name,
+            message: `Are you sure you want to delete the submission for <strong class="text-dark">"${name}"</strong>? This action cannot be undone.`,
+            confirmText: 'Yes, Delete',
+            confirmBtnClass: 'btn-danger',
+            iconClass: 'bi-trash3-fill',
+            onConfirm: function() {
+                if (row) {
+                    row.style.transition = 'all 0.3s ease';
+                    row.style.opacity = '0';
+                    setTimeout(() => row.remove(), 300);
+                }
+                showGlobalToast(`Submission "${name}" has been deleted.`);
+            }
+        });
+    }
 </script>
 
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>
