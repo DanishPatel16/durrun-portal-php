@@ -196,7 +196,7 @@ require_once __DIR__ . '/../includes/header.php';
                         </div>
                     </div>
                     <div>
-                        <a href="<?php echo $pathToRoot; ?>view/pages/pageslisting.php" class="view-all-link">
+                        <a href="<?php echo $pathToRoot; ?>view/models/modelslisting.php" class="view-all-link">
                             <span>View All</span>
                             <i class="bi bi-arrow-right"></i>
                         </a>
@@ -227,7 +227,7 @@ require_once __DIR__ . '/../includes/header.php';
                                             <i class="bi bi-three-dots"></i>
                                         </button>
                                         <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0" style="border-radius: 8px; font-size: 0.85rem; min-width: 140px;">
-                                            <li><a class="dropdown-item py-1.5" href="<?php echo $pathToRoot; ?>view/pages/pageslisting.php"><i class="bi bi-eye me-2 text-primary"></i>View</a></li>
+                                            <li><a class="dropdown-item py-1.5" href="<?php echo $pathToRoot; ?>view/models/modelslisting.php"><i class="bi bi-eye me-2 text-primary"></i>View</a></li>
                                             <li><hr class="dropdown-divider my-1"></li>
                                             <li><a class="dropdown-item py-1.5 text-danger" href="javascript:void(0)" onclick="handleDeleteSubmission('Blog Post Generator', this)"><i class="bi bi-trash me-2"></i>Delete</a></li>
                                         </ul>
@@ -237,7 +237,7 @@ require_once __DIR__ . '/../includes/header.php';
 
                             <!-- Row 2 -->
                             <tr>
-                                <td><a href="<?php echo $pathToRoot; ?>view/pages/addpages.php" class="item-link">Acme Vision 1.0</a></td>
+                                <td><a href="<?php echo $pathToRoot; ?>view/models/addmodels.php" class="item-link">Acme Vision 1.0</a></td>
                                 <td>Model</td>
                                 <td>Aug 22, 2025</td>
                                 <td><span class="badge-status badge-approved">Approved</span></td>
@@ -247,7 +247,7 @@ require_once __DIR__ . '/../includes/header.php';
                                             <i class="bi bi-three-dots"></i>
                                         </button>
                                         <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0" style="border-radius: 8px; font-size: 0.85rem; min-width: 140px;">
-                                            <li><a class="dropdown-item py-1.5" href="<?php echo $pathToRoot; ?>view/pages/pageslisting.php"><i class="bi bi-eye me-2 text-primary"></i>View</a></li>
+                                            <li><a class="dropdown-item py-1.5" href="<?php echo $pathToRoot; ?>view/models/modelslisting.php"><i class="bi bi-eye me-2 text-primary"></i>View</a></li>
                                             <li><hr class="dropdown-divider my-1"></li>
                                             <li><a class="dropdown-item py-1.5 text-danger" href="javascript:void(0)" onclick="handleDeleteSubmission('Acme Vision 1.0', this)"><i class="bi bi-trash me-2"></i>Delete</a></li>
                                         </ul>
@@ -267,7 +267,7 @@ require_once __DIR__ . '/../includes/header.php';
                                             <i class="bi bi-three-dots"></i>
                                         </button>
                                         <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0" style="border-radius: 8px; font-size: 0.85rem; min-width: 140px;">
-                                            <li><a class="dropdown-item py-1.5" href="<?php echo $pathToRoot; ?>view/pages/pageslisting.php"><i class="bi bi-eye me-2 text-primary"></i>View</a></li>
+                                            <li><a class="dropdown-item py-1.5" href="<?php echo $pathToRoot; ?>view/models/modelslisting.php"><i class="bi bi-eye me-2 text-primary"></i>View</a></li>
                                             <li><hr class="dropdown-divider my-1"></li>
                                             <li><a class="dropdown-item py-1.5 text-danger" href="javascript:void(0)" onclick="handleDeleteSubmission('Email Assistant', this)"><i class="bi bi-trash me-2"></i>Delete</a></li>
                                         </ul>
@@ -287,7 +287,7 @@ require_once __DIR__ . '/../includes/header.php';
                                             <i class="bi bi-three-dots"></i>
                                         </button>
                                         <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0" style="border-radius: 8px; font-size: 0.85rem; min-width: 140px;">
-                                            <li><a class="dropdown-item py-1.5" href="<?php echo $pathToRoot; ?>view/pages/pageslisting.php"><i class="bi bi-eye me-2 text-primary"></i>View</a></li>
+                                            <li><a class="dropdown-item py-1.5" href="<?php echo $pathToRoot; ?>view/models/modelslisting.php"><i class="bi bi-eye me-2 text-primary"></i>View</a></li>
                                             <li><hr class="dropdown-divider my-1"></li>
                                             <li><a class="dropdown-item py-1.5 text-danger" href="javascript:void(0)" onclick="handleDeleteSubmission('Acme LLM 1.2', this)"><i class="bi bi-trash me-2"></i>Delete</a></li>
                                         </ul>
@@ -307,7 +307,7 @@ require_once __DIR__ . '/../includes/header.php';
                                             <i class="bi bi-three-dots"></i>
                                         </button>
                                         <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0" style="border-radius: 8px; font-size: 0.85rem; min-width: 140px;">
-                                            <li><a class="dropdown-item py-1.5" href="<?php echo $pathToRoot; ?>view/pages/pageslisting.php"><i class="bi bi-eye me-2 text-primary"></i>View</a></li>
+                                            <li><a class="dropdown-item py-1.5" href="<?php echo $pathToRoot; ?>view/models/modelslisting.php"><i class="bi bi-eye me-2 text-primary"></i>View</a></li>
                                             <li><hr class="dropdown-divider my-1"></li>
                                             <li><a class="dropdown-item py-1.5 text-danger" href="javascript:void(0)" onclick="handleDeleteSubmission('Code Explainer', this)"><i class="bi bi-trash me-2"></i>Delete</a></li>
                                         </ul>

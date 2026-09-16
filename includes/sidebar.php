@@ -35,7 +35,7 @@ $isModelsActive = in_array($activePage, ['models', 'models-add', 'modelslisting'
 
         <!-- Models / Pages -->
         <li>
-            <a href="<?php echo $pathToRoot; ?>view/pages/pageslisting.php" class="sidebar-link <?php echo $isModelsActive ? 'active' : ''; ?>">
+            <a href="<?php echo $pathToRoot; ?>view/models/modelslisting.php" class="sidebar-link <?php echo $isModelsActive ? 'active' : ''; ?>">
                 <img src="<?php echo $pathToRoot; ?>assets/icons/Dashboard/Models.svg" alt="Models" class="sidebar-icon-svg">
                 <span>Models</span>
             </a>

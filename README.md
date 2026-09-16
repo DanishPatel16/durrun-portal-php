@@ -24,12 +24,12 @@ durrun-portal/
 │   ├── dashboard.php                 # Partner Portal Dashboard
 │   ├── provider-profile.php          # Provider Profile Management
 │   ├── logout.php                    # Session logout handler (redirects to login.php)
-│   ├── pages/                        # Pages Module Directory
-│   │   ├── pageslisting.php          # Listing Table Page (with search, filter, pagination, stats)
-│   │   └── addpages.php              # Add / Create Page (with code tabs & status pipeline)
-│   └── models/                       # Models Module Directory (Aliases)
-│       ├── modelslisting.php         # Models listing page
-│       └── addmodels.php             # Add model page
+│   ├── models/                       # Models Module Directory (Direct Implementation)
+│   │   ├── modelslisting.php         # Models listing page (with search, filter, modal, delete prompt)
+│   │   └── addmodels.php             # Add / Create Model page (with code tabs, upload toggles)
+│   └── pages/                        # Pages Module Directory (Aliases / Redirects)
+│       ├── pageslisting.php          # Redirects to view/models/modelslisting.php
+│       └── addpages.php              # Redirects to view/models/addmodels.php
 └── standalone/                       # Drop-in single-file versions with zero includes
     ├── login.php
     ├── dashboard.php
@@ -51,5 +51,5 @@ Then open in your browser:
 - **Login**: [http://localhost:8080/login.php](http://localhost:8080/login.php)
 - **Dashboard**: [http://localhost:8080/view/dashboard.php](http://localhost:8080/view/dashboard.php)
 - **Provider Profile**: [http://localhost:8080/view/provider-profile.php](http://localhost:8080/view/provider-profile.php)
-- **Pages / Models Listing**: [http://localhost:8080/view/pages/pageslisting.php](http://localhost:8080/view/pages/pageslisting.php)
-- **Add Page / Model**: [http://localhost:8080/view/pages/addpages.php](http://localhost:8080/view/pages/addpages.php)
+- **Models Listing**: [http://localhost:8080/view/models/modelslisting.php](http://localhost:8080/view/models/modelslisting.php)
+- **Add Model**: [http://localhost:8080/view/models/addmodels.php](http://localhost:8080/view/models/addmodels.php)
