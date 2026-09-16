@@ -79,10 +79,18 @@ $pageSubHeading = $isEditing ? "Update your model details, API endpoints, and co
             <!-- Header & Action Buttons -->
             <div class="welcome-header align-items-center mb-4">
                 <div>
+                    <!-- <a href="modelslisting.php" class="text-decoration-none d-inline-flex align-items-center gap-1.5 text-muted small fw-semibold mb-2 hover-primary">
+                        <i class="bi bi-arrow-left"></i>
+                        <span>Back to Models</span>
+                    </a> -->
                     <h1 class="welcome-title"><?php echo $pageHeading; ?></h1>
                     <p class="welcome-subtitle"><?php echo $pageSubHeading; ?></p>
                 </div>
                 <div class="d-flex align-items-center gap-2">
+                    <a href="modelslisting.php" class="btn btn-light border px-3 py-2 fw-semibold text-secondary d-inline-flex align-items-center gap-1.5" style="border-radius: 8px; font-size: 0.95rem;">
+                        <i class="bi bi-arrow-left"></i>
+                        <span>Back</span>
+                    </a>
                     <button type="button" class="btn btn-outline-secondary px-3 py-2 fw-semibold" style="border-radius: 8px; font-size: 0.95rem; background: #ffffff;">
                         Save Draft
                     </button>
@@ -651,9 +659,21 @@ curl -X POST &quot;https://api.durrun.com/v1/models/predict&quot; \
                     </div>
                 </div>
 
-                <!-- ==========================================
-                     SECTION 5: PLAYGROUND FEATURES
-                     ========================================== -->
+                <!-- Bottom Action Controls -->
+                <div class="d-flex align-items-center justify-content-between mb-4 pt-2">
+                    <a href="modelslisting.php" class="btn btn-light border px-4 py-2 fw-semibold text-secondary d-inline-flex align-items-center gap-2" style="border-radius: 8px; font-size: 0.95rem;">
+                        <i class="bi bi-arrow-left"></i>
+                        <span>Back to Models</span>
+                    </a>
+                    <div class="d-flex align-items-center gap-2">
+                        <button type="button" class="btn btn-outline-secondary px-3 py-2 fw-semibold" style="border-radius: 8px; font-size: 0.95rem; background: #ffffff;">
+                            Save Draft
+                        </button>
+                        <button type="submit" class="btn btn-primary px-4 py-2 fw-semibold" style="background-color: #0066ff; border-radius: 8px; font-size: 0.95rem;">
+                            Submit for Review
+                        </button>
+                    </div>
+                </div>
             </form>
 
             <!-- Page Bottom Footer -->
